@@ -94,6 +94,10 @@ public class Main {
         Moves.MoveDiagonallyLeft(figures[9], height, width, grid);
         Moves.MoveDiagonallyLeft(figures[0], height, width, grid);
         Moves.MoveForward(figures[0], height, grid);
+        Moves.MoveForward(figures[6], height, grid);
+        Moves.MoveDiagonallyRight(figures[6], height, width, grid);
+        Moves.MoveDiagonallyRight(figures[6], height, width, grid);
+        Moves.MoveDiagonallyLeft(figures[6], height, width, grid);
 
         printGrid(figures, height, width, grid);
 
