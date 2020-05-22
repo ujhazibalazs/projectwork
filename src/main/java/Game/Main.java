@@ -6,10 +6,11 @@ public class Main {
 
     }
 
+
+
     //Printing the map of the game out on the console
     public static void printGrid(Figure[] figures, int height, int width, Cell[][] grid) {
         System.out.println();
-        int figindex = 0;
         for (int i=0; i<height; i++) {
             for (int j=0; j<width; j++) {
                 if(grid[i][j].getEmpty() && !grid[i][j].getWall())
@@ -18,12 +19,14 @@ public class Main {
                     System.out.print("[/]");
                 else {
                     for (int k = 0; k < figures.length; k++) {
-                        if (figures[k].getHeight() == i && figures[k].getWidth() == j) {
-                            if (figures[k].getColor() == "red") {
-                                System.out.print("[R]");
-                            }
-                            else {
-                                System.out.print("[B]");
+                        if (!figures[k].isCaptured()) {
+                            if (figures[k].getHeight() == i && figures[k].getWidth() == j) {
+                                if (figures[k].getColor() == "red") {
+                                    System.out.print("[R]");
+                                }
+                                else {
+                                    System.out.print("[B]");
+                                }
                             }
                         }
                     }
@@ -83,21 +86,7 @@ public class Main {
             System.out.println(figures[i].getIndex() + ". figure: " + figures[i].getColor() + " Height:" + figures[i].getHeight() + " Width: " + figures[i].getWidth());
         }
 
-        printGrid(figures, height, width, grid);
-
-        Moves.MoveDiagonallyLeft(figures[0], height, width, grid);
-        Moves.MoveDiagonallyLeft(figures[0], height, width, grid);
-        Moves.MoveDiagonallyLeft(figures[0], height, width, grid);
-        Moves.MoveDiagonallyLeft(figures[8], height, width, grid);
-        Moves.MoveDiagonallyLeft(figures[9], height, width, grid);
-        Moves.MoveDiagonallyLeft(figures[11], height, width, grid);
-        Moves.MoveDiagonallyLeft(figures[9], height, width, grid);
-        Moves.MoveDiagonallyLeft(figures[0], height, width, grid);
-        Moves.MoveForward(figures[0], height, grid);
-        Moves.MoveForward(figures[6], height, grid);
-        Moves.MoveDiagonallyRight(figures[6], height, width, grid);
-        Moves.MoveDiagonallyRight(figures[6], height, width, grid);
-        Moves.MoveDiagonallyLeft(figures[6], height, width, grid);
+        Moves.MoveForward(figures[10], height, grid);
 
         printGrid(figures, height, width, grid);
 

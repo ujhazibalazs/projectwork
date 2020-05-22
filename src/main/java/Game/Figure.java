@@ -8,6 +8,7 @@ public class Figure {
     private String color;
     private int height;
     private int width;
+    private boolean captured = false;
 
     public int getIndex() {
         return index;
