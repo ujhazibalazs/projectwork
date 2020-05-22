@@ -1,5 +1,8 @@
 package Game;
 
+import lombok.Data;
+
+@Data
 public class Figure {
     private int index;
     private String color;

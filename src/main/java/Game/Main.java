@@ -7,14 +7,27 @@ public class Main {
     }
 
     //Printing the map of the game out on the console
-    public static void printGrid(int height, int width, Cell[][] grid) {
+    public static void printGrid(Figure[] figures, int height, int width, Cell[][] grid) {
+        System.out.println();
+        int figindex = 0;
         for (int i=0; i<height; i++) {
             for (int j=0; j<width; j++) {
                 if(grid[i][j].getEmpty() && !grid[i][j].getWall())
                     System.out.print("[O]");
                 else if(grid[i][j].getEmpty() && grid[i][j].getWall())
                     System.out.print("[/]");
-                else System.out.print("[X]");
+                else {
+                    for (int k = 0; k < figures.length; k++) {
+                        if (figures[k].getHeight() == i && figures[k].getWidth() == j) {
+                            if (figures[k].getColor() == "red") {
+                                System.out.print("[R]");
+                            }
+                            else {
+                                System.out.print("[B]");
+                            }
+                        }
+                    }
+                }
             }
             System.out.println("");
         }
@@ -28,7 +41,7 @@ public class Main {
         Cell[][] grid = new Cell[height][width];
 
         //Instantiating each element of the grid
-        for (int i=0; i<height; i++) {
+        for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 grid[i][j] = new Cell();
             }
@@ -38,22 +51,51 @@ public class Main {
         grid[2][4].setWall(true);
         grid[3][2].setWall(true);
 
-        printGrid(height, width, grid);
-
         Figure[] figures = new Figure[width*2];
 
         //Instantiating each element of the figures
-        for (int i=0; i<figures.length; i++) {
+        //Setting the width of the figures, making taken cells not empty
+        int currwidth = 0;
+        for (int i = 0; i < figures.length; i++) {
             figures[i] = new Figure();
             figures[i].setIndex(i);
-            if (i<width) figures[i].setColor("red");
-            else figures[i].setColor("blue");
+            if (currwidth == width) {
+                currwidth = 0;
+            }
+            if (i < width) {
+                figures[i].setColor("red");
+                figures[i].setHeight(0);
+                figures[i].setWidth(currwidth);
+                grid[0][currwidth].setEmpty(false);
+                currwidth++;
+            }
+            else {
+                figures[i].setColor("blue");
+                figures[i].setHeight(height-1);
+                figures[i].setWidth(currwidth);
+                grid[height-1][currwidth].setEmpty(false);
+                currwidth++;
+            }
         }
 
         //Checking information about the figures
-        for (int i=0; i<figures.length; i++) {
-            System.out.println(figures[i].getIndex() + ". figure: " + figures[i].getColor());
+        for (int i = 0; i < figures.length; i++) {
+            System.out.println(figures[i].getIndex() + ". figure: " + figures[i].getColor() + " Height:" + figures[i].getHeight() + " Width: " + figures[i].getWidth());
         }
+
+        printGrid(figures, height, width, grid);
+
+        Moves.MoveDiagonallyLeft(figures[0], height, width, grid);
+        Moves.MoveDiagonallyLeft(figures[0], height, width, grid);
+        Moves.MoveDiagonallyLeft(figures[0], height, width, grid);
+        Moves.MoveDiagonallyLeft(figures[8], height, width, grid);
+        Moves.MoveDiagonallyLeft(figures[9], height, width, grid);
+        Moves.MoveDiagonallyLeft(figures[11], height, width, grid);
+        Moves.MoveDiagonallyLeft(figures[9], height, width, grid);
+        Moves.MoveDiagonallyLeft(figures[0], height, width, grid);
+        Moves.MoveForward(figures[0], height, grid);
+
+        printGrid(figures, height, width, grid);
 
         //Putting the figures on the grid
     }
