@@ -1,4 +1,4 @@
-package Game;
+package game;
 
 public class Cell {
     private boolean empty = true;

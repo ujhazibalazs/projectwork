@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="faf4702f-7de2-4563-982f-20c7f2aee59f" name="Default Changelist" comment="">
+    <list default="true" id="faf4702f-7de2-4563-982f-20c7f2aee59f" name="Default Changelist" comment="Added user input and names.">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/package-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Moves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Moves.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Figure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Figure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Moves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Moves.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="package-info" />
       </list>
     </option>
   </component>
@@ -44,11 +49,11 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Game.Main" />
+      <option name="MAIN_CLASS_NAME" value="game.Main" />
       <module name="projectwork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Game.*" />
+          <option name="PATTERN" value="game.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,14 +99,22 @@
       <option name="project" value="LOCAL" />
       <updated>1590167954129</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added user input and names.">
+      <created>1590177995477</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1590177995477</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Moves class with MoveForward and MoveDiagonallyLeft functions." />
     <MESSAGE value="Added MoveDiagonallyRight function to Moves class." />
     <MESSAGE value="Added getFigureByPosition function to Moves class and added the ability to capture other figures." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added getFigureByPosition function to Moves class and added the ability to capture other figures." />
+    <MESSAGE value="Added user input and names." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added user input and names." />
   </component>
   <component name="WindowStateProjectService">
     <state x="606" y="95" key="#Main" timestamp="1589985403391">
@@ -112,32 +125,32 @@
       <screen x="0" y="34" width="1714" height="833" />
     </state>
     <state x="352" y="34" width="1000" height="833" key="#Project_Structure/0.34.1714.833@0.34.1714.833" timestamp="1586011233684" />
-    <state x="395" y="63" width="1211" height="952" key="CommitChangelistDialog2" timestamp="1590167953528">
+    <state x="392" y="39" width="1211" height="952" key="CommitChangelistDialog2" timestamp="1590186535600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="395" y="63" width="1211" height="952" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590167953528" />
-    <state width="1865" height="266" key="GridCell.Tab.0.bottom" timestamp="1590177832801">
+    <state x="392" y="39" width="1211" height="952" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590186535600" />
+    <state width="1865" height="266" key="GridCell.Tab.0.bottom" timestamp="1590357747863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590177832801" />
+    <state width="1865" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590357747863" />
     <state width="1658" height="241" key="GridCell.Tab.0.bottom/0.34.1714.833@0.34.1714.833" timestamp="1586015662029" />
     <state width="1864" height="156" key="GridCell.Tab.0.bottom/0.34.1920.989@0.34.1920.989" timestamp="1586017826693" />
-    <state width="1865" height="266" key="GridCell.Tab.0.center" timestamp="1590177832801">
+    <state width="1865" height="266" key="GridCell.Tab.0.center" timestamp="1590357747863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590177832801" />
+    <state width="1865" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590357747863" />
     <state width="1658" height="241" key="GridCell.Tab.0.center/0.34.1714.833@0.34.1714.833" timestamp="1586015662025" />
     <state width="1864" height="156" key="GridCell.Tab.0.center/0.34.1920.989@0.34.1920.989" timestamp="1586017826693" />
-    <state width="1865" height="266" key="GridCell.Tab.0.left" timestamp="1590177832801">
+    <state width="1865" height="266" key="GridCell.Tab.0.left" timestamp="1590357747863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590177832801" />
+    <state width="1865" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590357747863" />
     <state width="1658" height="241" key="GridCell.Tab.0.left/0.34.1714.833@0.34.1714.833" timestamp="1586015662025" />
     <state width="1864" height="156" key="GridCell.Tab.0.left/0.34.1920.989@0.34.1920.989" timestamp="1586017826692" />
-    <state width="1865" height="266" key="GridCell.Tab.0.right" timestamp="1590177832801">
+    <state width="1865" height="266" key="GridCell.Tab.0.right" timestamp="1590357747863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590177832801" />
+    <state width="1865" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590357747863" />
     <state width="1658" height="241" key="GridCell.Tab.0.right/0.34.1714.833@0.34.1714.833" timestamp="1586015662029" />
     <state width="1864" height="156" key="GridCell.Tab.0.right/0.34.1920.989@0.34.1920.989" timestamp="1586017826693" />
     <state width="1658" height="241" key="GridCell.Tab.1.bottom" timestamp="1586015662029">
@@ -160,9 +173,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="312" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589984916415" />
-    <state x="571" y="301" key="com.intellij.ide.util.TipDialog" timestamp="1590160769566">
+    <state x="571" y="301" key="com.intellij.ide.util.TipDialog" timestamp="1590337707732">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="571" y="301" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590160769566" />
+    <state x="571" y="301" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590337707732" />
   </component>
 </project>

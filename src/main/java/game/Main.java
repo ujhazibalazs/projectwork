@@ -1,4 +1,4 @@
-package Game;
+package game;
 
 import java.util.Scanner;
 
@@ -31,12 +31,11 @@ public class Main {
                 figures[i].setHeight(0);
                 figures[i].setWidth(currWidth);
                 grid[0][currWidth].setEmpty(false);
-            }
-            else {
+            } else {
                 figures[i].setColor("blue");
-                figures[i].setHeight(gridHeight-1);
+                figures[i].setHeight(gridHeight - 1);
                 figures[i].setWidth(currWidth);
-                grid[gridHeight-1][currWidth].setEmpty(false);
+                grid[gridHeight - 1][currWidth].setEmpty(false);
             }
             currWidth++;
         }
@@ -48,20 +47,19 @@ public class Main {
     //Printing the map of the game out on the console
     public static void printGrid(Figure[] figures, int height, int width, Cell[][] grid) {
         System.out.println();
-        for (int i=0; i<height; i++) {
-            for (int j=0; j<width; j++) {
-                if(grid[i][j].getEmpty() && !grid[i][j].getWall())
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (grid[i][j].getEmpty() && !grid[i][j].getWall()) {
                     System.out.print("[O]");
-                else if(grid[i][j].getEmpty() && grid[i][j].getWall())
+                } else if (grid[i][j].getEmpty() && grid[i][j].getWall()) {
                     System.out.print("[/]");
-                else {
+                } else {
                     for (int k = 0; k < figures.length; k++) {
                         if (!figures[k].isCaptured()) {
                             if (figures[k].getHeight() == i && figures[k].getWidth() == j) {
                                 if (figures[k].getColor().equals("red")) {
                                     System.out.print("[R]");
-                                }
-                                else {
+                                } else {
                                     System.out.print("[B]");
                                 }
                             }
@@ -124,21 +122,22 @@ public class Main {
                     }
                     switch (move) {
                         case "f":
-                            moveSuccessful = Moves.MoveForward(figures[figureIndex], gridHeight, grid);
+                            moveSuccessful = Moves.moveForward(figures[figureIndex], gridHeight, grid);
                             break;
                         case "dl":
-                            moveSuccessful = Moves.MoveDiagonallyLeft(figures[figureIndex], gridHeight, gridWidth, grid, figures);
+                            moveSuccessful = Moves.moveDiagonallyLeft(figures[figureIndex], gridHeight, gridWidth, grid, figures);
                             break;
                         case "dr":
-                            moveSuccessful = Moves.MoveDiagonallyRight(figures[figureIndex], gridHeight, gridWidth, grid, figures);
+                            moveSuccessful = Moves.moveDiagonallyRight(figures[figureIndex], gridHeight, gridWidth, grid, figures);
+                            break;
+                        default:
                             break;
                     }
                 }
                 printGrid(figures, gridHeight, gridWidth, grid);
                 moveSuccessful = !moveSuccessful;
                 player1Turn = !player1Turn;
-            }
-            else {
+            } else {
                 System.out.println(player2 + "'s turn");
                 printGrid(figures, gridHeight, gridWidth, grid);
                 while (!moveSuccessful) {
@@ -159,13 +158,15 @@ public class Main {
                     }
                     switch (move) {
                         case "f":
-                            moveSuccessful = Moves.MoveForward(figures[figureIndex], gridHeight, grid);
+                            moveSuccessful = Moves.moveForward(figures[figureIndex], gridHeight, grid);
                             break;
                         case "dl":
-                            moveSuccessful = Moves.MoveDiagonallyLeft(figures[figureIndex], gridHeight, gridWidth, grid, figures);
+                            moveSuccessful = Moves.moveDiagonallyLeft(figures[figureIndex], gridHeight, gridWidth, grid, figures);
                             break;
                         case "dr":
-                            moveSuccessful = Moves.MoveDiagonallyRight(figures[figureIndex], gridHeight, gridWidth, grid, figures);
+                            moveSuccessful = Moves.moveDiagonallyRight(figures[figureIndex], gridHeight, gridWidth, grid, figures);
+                            break;
+                        default:
                             break;
                     }
                 }
