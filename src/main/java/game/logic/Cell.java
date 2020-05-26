@@ -1,4 +1,4 @@
-package game;
+package game.logic;
 
 public class Cell {
     private boolean empty = true;

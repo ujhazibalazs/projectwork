@@ -1,15 +1,171 @@
-package game;
+package game.logic;
+
+import org.tinylog.Logger;
 
 public class Moves {
 
-    private static Figure getFigureByPosition(Figure[] figures, int height, int width) {
+    public static Figure getFigureByPosition(Figure[] figures, int height, int width) {
         Figure figure = new Figure();
         for (int i = 0; i < figures.length; i++) {
             if (figures[i].getHeight() == height && figures[i].getWidth() == width) {
-                figure = figures[i];
+                if (!figures[i].isCaptured()) {
+                    figure = figures[i];
+                }
             }
         }
         return figure;
+    }
+
+    public static boolean canPlayerMove(boolean player1Turn, Figure[] figures, int gridHeight, int gridWidth, Cell[][] grid) {
+
+        int minIndex;
+        int maxIndex;
+
+        if (player1Turn) {
+            minIndex = 0;
+            maxIndex = 7;
+        } else {
+            minIndex = 7;
+            maxIndex = 14;
+        }
+
+        for (int i = minIndex; i < maxIndex; i++) {
+            if (canMoveForward(figures[i], gridHeight, grid)) {
+                return true;
+            }
+        }
+        for (int i = minIndex; i < maxIndex; i++) {
+            if (canMoveDiagonallyLeft(figures[i], gridHeight, gridWidth, grid, figures)) {
+                return true;
+            }
+        }
+        for (int i = minIndex; i < maxIndex; i++) {
+            if (canMoveDiagonallyRight(figures[i], gridHeight, gridWidth, grid, figures)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static  boolean canMoveForward(Figure figure, int gridHeight, Cell[][] grid) {
+        if (!figure.isCaptured()) {
+            if (figure.getColor().equals("red")) {
+                if (figure.getHeight() + 1 < gridHeight) {
+                    if (grid[figure.getHeight() + 1][figure.getWidth()].getEmpty() && !grid[figure.getHeight() + 1][figure.getWidth()].getWall()) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                if (figure.getHeight() - 1 > -1) {
+                    if (grid[figure.getHeight() - 1][figure.getWidth()].getEmpty() && !grid[figure.getHeight() - 1][figure.getWidth()].getWall()) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean canMoveDiagonallyLeft (Figure figure, int gridHeight, int gridWidth, Cell[][] grid, Figure[] figures) {
+        if (!figure.isCaptured()) {
+            if (figure.getColor().equals("red")) {
+                if (figure.getHeight() + 1 < gridHeight && figure.getWidth() + 1 < gridWidth) {
+                    if (grid[figure.getHeight() + 1][figure.getWidth() + 1].getEmpty() && !grid[figure.getHeight() + 1][figure.getWidth() + 1].getWall()) {
+                        return true;
+                    } else {
+                        if (!grid[figure.getHeight() + 1][figure.getWidth() + 1].getEmpty()) {
+                            Figure figure2 = getFigureByPosition(figures, figure.getHeight() + 1, figure.getWidth() + 1);
+                            if (!figure2.getColor().equals(figure.getColor())) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        } else {
+                            return false;
+                        }
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                if (figure.getHeight() - 1 > -1 && figure.getWidth() - 1 > -1) {
+                    if (grid[figure.getHeight() - 1][figure.getWidth() - 1].getEmpty() && !grid[figure.getHeight() - 1][figure.getWidth() - 1].getWall()) {
+                        return true;
+                    } else {
+                        if (!grid[figure.getHeight() - 1][figure.getWidth() - 1].getEmpty()) {
+                            Figure figure2 = getFigureByPosition(figures, figure.getHeight() - 1, figure.getWidth() - 1);
+                            if (!figure2.getColor().equals(figure.getColor())) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        } else {
+                            return false;
+                        }
+                    }
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean canMoveDiagonallyRight(Figure figure, int gridHeight, int gridWidth, Cell[][] grid, Figure[] figures) {
+        if (!figure.isCaptured()) {
+            if (figure.getColor().equals("red")) {
+                if (figure.getHeight() + 1 < gridHeight && figure.getWidth() - 1 > -1) {
+                    if (grid[figure.getHeight() + 1][figure.getWidth() - 1].getEmpty() && !grid[figure.getHeight() + 1][figure.getWidth() - 1].getWall()) {
+                        return true;
+                    } else {
+                        if (!grid[figure.getHeight() + 1][figure.getWidth() - 1].getEmpty()) {
+                            Figure figure2 = getFigureByPosition(figures, figure.getHeight() + 1, figure.getWidth() - 1);
+                            if (!figure2.getColor().equals(figure.getColor())) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        } else {
+                            return false;
+                        }
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                if (figure.getHeight() - 1 > -1 && figure.getWidth() + 1 < gridWidth) {
+                    if (grid[figure.getHeight() - 1][figure.getWidth() + 1].getEmpty() && !grid[figure.getHeight() - 1][figure.getWidth() + 1].getWall()) {
+                        return true;
+                    } else {
+                        if (!grid[figure.getHeight() - 1][figure.getWidth() + 1].getEmpty()) {
+                            Figure figure2 = getFigureByPosition(figures, figure.getHeight() - 1, figure.getWidth() + 1);
+                            if (!figure2.getColor().equals(figure.getColor())) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        } else {
+                            return false;
+                        }
+                    }
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
     }
 
     public static boolean moveForward(Figure figure, int gridHeight, Cell[][] grid) {

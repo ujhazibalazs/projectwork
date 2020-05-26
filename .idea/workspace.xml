@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="faf4702f-7de2-4563-982f-20c7f2aee59f" name="Default Changelist" comment="Added user input and names.">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/package-info.java" afterDir="false" />
+    <list default="true" id="faf4702f-7de2-4563-982f-20c7f2aee59f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/javafx/GameApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/javafx/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/javafx/MenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/javafx/NamingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/logic/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/game.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/menu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/naming.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Figure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Figure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Moves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Moves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/logic/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Figure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/logic/Figure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/logic/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Moves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/logic/Moves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/logic/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Cell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Figure.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Main.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +31,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="package-info" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -35,25 +48,50 @@
     </option>
   </component>
   <component name="ProjectId" id="1a52boySWyCpBuvutAmC9dh3UUq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Gluon/SceneBuilder.lnk" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="Lombok plugin" />
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="game.Main" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Balázs\Desktop\projectwork\src\main\resources\fxml" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="GameApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="game.javafx.GameApplication" />
       <module name="projectwork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="game.*" />
+          <option name="PATTERN" value="game.javafx.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="game.logic.Main" />
+      <module name="projectwork" />
+      <option name="PROGRAM_PARAMETERS" value="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.logic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -64,6 +102,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.GameApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -106,76 +145,114 @@
       <option name="project" value="LOCAL" />
       <updated>1590177995477</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed checkstyle errors and modified pom.">
+      <created>1590357809527</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590357809527</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added Moves class with MoveForward and MoveDiagonallyLeft functions." />
     <MESSAGE value="Added MoveDiagonallyRight function to Moves class." />
     <MESSAGE value="Added getFigureByPosition function to Moves class and added the ability to capture other figures." />
     <MESSAGE value="Added user input and names." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added user input and names." />
+    <MESSAGE value="Fixed checkstyle errors and modified pom." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed checkstyle errors and modified pom." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="606" y="95" key="#Main" timestamp="1589985403391">
+    <state x="606" y="95" key="#Main" timestamp="1590409248383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="606" y="95" key="#Main/0.0.1920.1040@0.0.1920.1040" timestamp="1589985403391" />
+    <state x="606" y="95" key="#Main/0.0.1920.1040@0.0.1920.1040" timestamp="1590409248383" />
     <state x="352" y="34" width="1000" height="833" key="#Project_Structure" timestamp="1586011233684">
       <screen x="0" y="34" width="1714" height="833" />
     </state>
     <state x="352" y="34" width="1000" height="833" key="#Project_Structure/0.34.1714.833@0.34.1714.833" timestamp="1586011233684" />
-    <state x="392" y="39" width="1211" height="952" key="CommitChangelistDialog2" timestamp="1590186535600">
+    <state x="721" y="161" key="#com.intellij.ide.util.MemberChooser" timestamp="1590428841697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="392" y="39" width="1211" height="952" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590186535600" />
-    <state width="1865" height="266" key="GridCell.Tab.0.bottom" timestamp="1590357747863">
+    <state x="721" y="161" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590428841697" />
+    <state x="392" y="39" width="1211" height="952" key="CommitChangelistDialog2" timestamp="1590357808708">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590357747863" />
+    <state x="392" y="39" width="1211" height="952" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590357808708" />
+    <state x="690" y="199" key="FileChooserDialogImpl" timestamp="1590395482891">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="199" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590395482891" />
+    <state width="1865" height="197" key="GridCell.Tab.0.bottom" timestamp="1590530326190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="197" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590530326190" />
     <state width="1658" height="241" key="GridCell.Tab.0.bottom/0.34.1714.833@0.34.1714.833" timestamp="1586015662029" />
     <state width="1864" height="156" key="GridCell.Tab.0.bottom/0.34.1920.989@0.34.1920.989" timestamp="1586017826693" />
-    <state width="1865" height="266" key="GridCell.Tab.0.center" timestamp="1590357747863">
+    <state width="1865" height="197" key="GridCell.Tab.0.center" timestamp="1590530326190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590357747863" />
+    <state width="1865" height="197" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590530326190" />
     <state width="1658" height="241" key="GridCell.Tab.0.center/0.34.1714.833@0.34.1714.833" timestamp="1586015662025" />
     <state width="1864" height="156" key="GridCell.Tab.0.center/0.34.1920.989@0.34.1920.989" timestamp="1586017826693" />
-    <state width="1865" height="266" key="GridCell.Tab.0.left" timestamp="1590357747863">
+    <state width="1865" height="197" key="GridCell.Tab.0.left" timestamp="1590530326190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590357747863" />
+    <state width="1865" height="197" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590530326190" />
     <state width="1658" height="241" key="GridCell.Tab.0.left/0.34.1714.833@0.34.1714.833" timestamp="1586015662025" />
     <state width="1864" height="156" key="GridCell.Tab.0.left/0.34.1920.989@0.34.1920.989" timestamp="1586017826692" />
-    <state width="1865" height="266" key="GridCell.Tab.0.right" timestamp="1590357747863">
+    <state width="1865" height="197" key="GridCell.Tab.0.right" timestamp="1590530326190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590357747863" />
+    <state width="1865" height="197" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590530326190" />
     <state width="1658" height="241" key="GridCell.Tab.0.right/0.34.1714.833@0.34.1714.833" timestamp="1586015662029" />
     <state width="1864" height="156" key="GridCell.Tab.0.right/0.34.1920.989@0.34.1920.989" timestamp="1586017826693" />
-    <state width="1658" height="241" key="GridCell.Tab.1.bottom" timestamp="1586015662029">
-      <screen x="0" y="34" width="1714" height="833" />
+    <state width="1865" height="331" key="GridCell.Tab.1.bottom" timestamp="1590443940910">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="331" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590443940910" />
     <state width="1658" height="241" key="GridCell.Tab.1.bottom/0.34.1714.833@0.34.1714.833" timestamp="1586015662029" />
-    <state width="1658" height="241" key="GridCell.Tab.1.center" timestamp="1586015662029">
-      <screen x="0" y="34" width="1714" height="833" />
+    <state width="1865" height="331" key="GridCell.Tab.1.center" timestamp="1590443940910">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="331" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590443940910" />
     <state width="1658" height="241" key="GridCell.Tab.1.center/0.34.1714.833@0.34.1714.833" timestamp="1586015662029" />
-    <state width="1658" height="241" key="GridCell.Tab.1.left" timestamp="1586015662029">
-      <screen x="0" y="34" width="1714" height="833" />
+    <state width="1865" height="331" key="GridCell.Tab.1.left" timestamp="1590443940910">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="331" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590443940910" />
     <state width="1658" height="241" key="GridCell.Tab.1.left/0.34.1714.833@0.34.1714.833" timestamp="1586015662029" />
-    <state width="1658" height="241" key="GridCell.Tab.1.right" timestamp="1586015662029">
-      <screen x="0" y="34" width="1714" height="833" />
+    <state width="1865" height="331" key="GridCell.Tab.1.right" timestamp="1590443940910">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="331" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590443940910" />
     <state width="1658" height="241" key="GridCell.Tab.1.right/0.34.1714.833@0.34.1714.833" timestamp="1586015662029" />
-    <state x="312" y="0" key="SettingsEditor" timestamp="1589984916415">
+    <state x="312" y="0" key="SettingsEditor" timestamp="1590416728599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="312" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589984916415" />
-    <state x="571" y="301" key="com.intellij.ide.util.TipDialog" timestamp="1590337707732">
+    <state x="312" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590416728599" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1590357816760">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="571" y="301" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590337707732" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590357816760" />
+    <state x="571" y="301" key="com.intellij.ide.util.TipDialog" timestamp="1590485821671">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="571" y="301" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590485821671" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1590495090739">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590495090739" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="Projektmunka" type="b2602c69:ProjectViewProjectNode" />
+        <item name="projectwork" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
   </component>
 </project>
