@@ -1,7 +1,5 @@
 package game.logic;
 
-import org.tinylog.Logger;
-
 public class Moves {
 
     public static Figure getFigureByPosition(Figure[] figures, int height, int width) {
@@ -52,7 +50,7 @@ public class Moves {
         if (!figure.isCaptured()) {
             if (figure.getColor().equals("red")) {
                 if (figure.getHeight() + 1 < gridHeight) {
-                    if (grid[figure.getHeight() + 1][figure.getWidth()].getEmpty() && !grid[figure.getHeight() + 1][figure.getWidth()].getWall()) {
+                    if (grid[figure.getHeight() + 1][figure.getWidth()].isEmpty() && !grid[figure.getHeight() + 1][figure.getWidth()].isWall()) {
                         return true;
                     } else {
                         return false;
@@ -62,7 +60,7 @@ public class Moves {
                 }
             } else {
                 if (figure.getHeight() - 1 > -1) {
-                    if (grid[figure.getHeight() - 1][figure.getWidth()].getEmpty() && !grid[figure.getHeight() - 1][figure.getWidth()].getWall()) {
+                    if (grid[figure.getHeight() - 1][figure.getWidth()].isEmpty() && !grid[figure.getHeight() - 1][figure.getWidth()].isWall()) {
                         return true;
                     } else {
                         return false;
@@ -80,10 +78,10 @@ public class Moves {
         if (!figure.isCaptured()) {
             if (figure.getColor().equals("red")) {
                 if (figure.getHeight() + 1 < gridHeight && figure.getWidth() + 1 < gridWidth) {
-                    if (grid[figure.getHeight() + 1][figure.getWidth() + 1].getEmpty() && !grid[figure.getHeight() + 1][figure.getWidth() + 1].getWall()) {
+                    if (grid[figure.getHeight() + 1][figure.getWidth() + 1].isEmpty() && !grid[figure.getHeight() + 1][figure.getWidth() + 1].isWall()) {
                         return true;
                     } else {
-                        if (!grid[figure.getHeight() + 1][figure.getWidth() + 1].getEmpty()) {
+                        if (!grid[figure.getHeight() + 1][figure.getWidth() + 1].isEmpty()) {
                             Figure figure2 = getFigureByPosition(figures, figure.getHeight() + 1, figure.getWidth() + 1);
                             if (!figure2.getColor().equals(figure.getColor())) {
                                 return true;
@@ -99,10 +97,10 @@ public class Moves {
                 }
             } else {
                 if (figure.getHeight() - 1 > -1 && figure.getWidth() - 1 > -1) {
-                    if (grid[figure.getHeight() - 1][figure.getWidth() - 1].getEmpty() && !grid[figure.getHeight() - 1][figure.getWidth() - 1].getWall()) {
+                    if (grid[figure.getHeight() - 1][figure.getWidth() - 1].isEmpty() && !grid[figure.getHeight() - 1][figure.getWidth() - 1].isWall()) {
                         return true;
                     } else {
-                        if (!grid[figure.getHeight() - 1][figure.getWidth() - 1].getEmpty()) {
+                        if (!grid[figure.getHeight() - 1][figure.getWidth() - 1].isEmpty()) {
                             Figure figure2 = getFigureByPosition(figures, figure.getHeight() - 1, figure.getWidth() - 1);
                             if (!figure2.getColor().equals(figure.getColor())) {
                                 return true;
@@ -126,10 +124,10 @@ public class Moves {
         if (!figure.isCaptured()) {
             if (figure.getColor().equals("red")) {
                 if (figure.getHeight() + 1 < gridHeight && figure.getWidth() - 1 > -1) {
-                    if (grid[figure.getHeight() + 1][figure.getWidth() - 1].getEmpty() && !grid[figure.getHeight() + 1][figure.getWidth() - 1].getWall()) {
+                    if (grid[figure.getHeight() + 1][figure.getWidth() - 1].isEmpty() && !grid[figure.getHeight() + 1][figure.getWidth() - 1].isWall()) {
                         return true;
                     } else {
-                        if (!grid[figure.getHeight() + 1][figure.getWidth() - 1].getEmpty()) {
+                        if (!grid[figure.getHeight() + 1][figure.getWidth() - 1].isEmpty()) {
                             Figure figure2 = getFigureByPosition(figures, figure.getHeight() + 1, figure.getWidth() - 1);
                             if (!figure2.getColor().equals(figure.getColor())) {
                                 return true;
@@ -145,10 +143,10 @@ public class Moves {
                 }
             } else {
                 if (figure.getHeight() - 1 > -1 && figure.getWidth() + 1 < gridWidth) {
-                    if (grid[figure.getHeight() - 1][figure.getWidth() + 1].getEmpty() && !grid[figure.getHeight() - 1][figure.getWidth() + 1].getWall()) {
+                    if (grid[figure.getHeight() - 1][figure.getWidth() + 1].isEmpty() && !grid[figure.getHeight() - 1][figure.getWidth() + 1].isWall()) {
                         return true;
                     } else {
-                        if (!grid[figure.getHeight() - 1][figure.getWidth() + 1].getEmpty()) {
+                        if (!grid[figure.getHeight() - 1][figure.getWidth() + 1].isEmpty()) {
                             Figure figure2 = getFigureByPosition(figures, figure.getHeight() - 1, figure.getWidth() + 1);
                             if (!figure2.getColor().equals(figure.getColor())) {
                                 return true;
@@ -172,7 +170,7 @@ public class Moves {
         if (!figure.isCaptured()) {
             if (figure.getColor().equals("red")) {
                 if (figure.getHeight()+1 < gridHeight) {
-                    if (grid[figure.getHeight() + 1][figure.getWidth()].getEmpty() && !grid[figure.getHeight() + 1][figure.getWidth()].getWall()) {
+                    if (grid[figure.getHeight() + 1][figure.getWidth()].isEmpty() && !grid[figure.getHeight() + 1][figure.getWidth()].isWall()) {
                         figure.setHeight(figure.getHeight() + 1);
                         grid[figure.getHeight()][figure.getWidth()].setEmpty(false);
                         grid[figure.getHeight() - 1][figure.getWidth()].setEmpty(true);
@@ -187,7 +185,7 @@ public class Moves {
                 }
             } else {
                 if (figure.getHeight()-1 > -1) {
-                    if (grid[figure.getHeight() - 1][figure.getWidth()].getEmpty() && !grid[figure.getHeight() - 1][figure.getWidth()].getWall()) {
+                    if (grid[figure.getHeight() - 1][figure.getWidth()].isEmpty() && !grid[figure.getHeight() - 1][figure.getWidth()].isWall()) {
                         figure.setHeight(figure.getHeight() - 1);
                         grid[figure.getHeight()][figure.getWidth()].setEmpty(false);
                         grid[figure.getHeight() + 1][figure.getWidth()].setEmpty(true);
@@ -211,14 +209,14 @@ public class Moves {
         if (!figure.isCaptured()) {
             if (figure.getColor().equals("red")) {
                 if (figure.getHeight() + 1 < gridHeight && figure.getWidth() + 1 < gridWidth) {
-                    if (grid[figure.getHeight() + 1][figure.getWidth() + 1].getEmpty() && !grid[figure.getHeight() + 1][figure.getWidth() + 1].getWall()) {
+                    if (grid[figure.getHeight() + 1][figure.getWidth() + 1].isEmpty() && !grid[figure.getHeight() + 1][figure.getWidth() + 1].isWall()) {
                         figure.setHeight(figure.getHeight() + 1);
                         figure.setWidth(figure.getWidth() + 1);
                         grid[figure.getHeight()][figure.getWidth()].setEmpty(false);
                         grid[figure.getHeight() - 1][figure.getWidth() - 1].setEmpty(true);
                         return true;
                     } else {
-                        if (!grid[figure.getHeight() + 1][figure.getWidth() + 1].getEmpty()) {
+                        if (!grid[figure.getHeight() + 1][figure.getWidth() + 1].isEmpty()) {
                             Figure figure2 = getFigureByPosition(figures, figure.getHeight() + 1, figure.getWidth() + 1);
                             if (!figure2.getColor().equals(figure.getColor())) {
                                 //Capturing the figure
@@ -242,14 +240,14 @@ public class Moves {
                 }
             } else {
                 if (figure.getHeight() - 1 > -1 && figure.getWidth() - 1 > -1) {
-                    if (grid[figure.getHeight() - 1][figure.getWidth() - 1].getEmpty() && !grid[figure.getHeight() - 1][figure.getWidth() - 1].getWall()) {
+                    if (grid[figure.getHeight() - 1][figure.getWidth() - 1].isEmpty() && !grid[figure.getHeight() - 1][figure.getWidth() - 1].isWall()) {
                         figure.setHeight(figure.getHeight() - 1);
                         figure.setWidth(figure.getWidth() - 1);
                         grid[figure.getHeight()][figure.getWidth()].setEmpty(false);
                         grid[figure.getHeight() + 1][figure.getWidth() + 1].setEmpty(true);
                         return true;
                     } else {
-                        if (!grid[figure.getHeight() - 1][figure.getWidth() - 1].getEmpty()) {
+                        if (!grid[figure.getHeight() - 1][figure.getWidth() - 1].isEmpty()) {
                             Figure figure2 = getFigureByPosition(figures, figure.getHeight() - 1, figure.getWidth() - 1);
                             if (!figure2.getColor().equals(figure.getColor())) {
                                 //Capturing the figure
@@ -282,14 +280,14 @@ public class Moves {
         if (!figure.isCaptured()) {
             if (figure.getColor().equals("red")) {
                 if (figure.getHeight() + 1 < gridHeight && figure.getWidth() - 1 > -1) {
-                    if (grid[figure.getHeight() + 1][figure.getWidth() - 1].getEmpty() && !grid[figure.getHeight() + 1][figure.getWidth() - 1].getWall()) {
+                    if (grid[figure.getHeight() + 1][figure.getWidth() - 1].isEmpty() && !grid[figure.getHeight() + 1][figure.getWidth() - 1].isWall()) {
                         figure.setHeight(figure.getHeight() + 1);
                         figure.setWidth(figure.getWidth() - 1);
                         grid[figure.getHeight()][figure.getWidth()].setEmpty(false);
                         grid[figure.getHeight() - 1][figure.getWidth() + 1].setEmpty(true);
                         return true;
                     } else {
-                        if (!grid[figure.getHeight() + 1][figure.getWidth() - 1].getEmpty()) {
+                        if (!grid[figure.getHeight() + 1][figure.getWidth() - 1].isEmpty()) {
                             Figure figure2 = getFigureByPosition(figures, figure.getHeight() + 1, figure.getWidth() - 1);
                             if (!figure2.getColor().equals(figure.getColor())) {
                                 //Capturing the figure
@@ -313,14 +311,14 @@ public class Moves {
                 }
             } else {
                 if (figure.getHeight() - 1 > -1 && figure.getWidth() + 1 < gridWidth) {
-                    if (grid[figure.getHeight() - 1][figure.getWidth() + 1].getEmpty() && !grid[figure.getHeight() - 1][figure.getWidth() + 1].getWall()) {
+                    if (grid[figure.getHeight() - 1][figure.getWidth() + 1].isEmpty() && !grid[figure.getHeight() - 1][figure.getWidth() + 1].isWall()) {
                         figure.setHeight(figure.getHeight() - 1);
                         figure.setWidth(figure.getWidth() + 1);
                         grid[figure.getHeight()][figure.getWidth()].setEmpty(false);
                         grid[figure.getHeight() + 1][figure.getWidth() - 1].setEmpty(true);
                         return true;
                     } else {
-                        if (!grid[figure.getHeight() - 1][figure.getWidth() + 1].getEmpty()) {
+                        if (!grid[figure.getHeight() - 1][figure.getWidth() + 1].isEmpty()) {
                             Figure figure2 = getFigureByPosition(figures, figure.getHeight() - 1, figure.getWidth() + 1);
                             if (!figure2.getColor().equals(figure.getColor())) {
                                 //Capturing the figure

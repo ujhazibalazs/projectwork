@@ -1,22 +1,12 @@
 package game.logic;
 
+import lombok.Data;
+
+/**
+ * Class representing a cell of a grid.
+ */
+@Data
 public class Cell {
     private boolean empty = true;
     private boolean wall = false;
-
-    public boolean getEmpty() {
-        return empty;
-    }
-
-    public void setEmpty(boolean value) {
-        this.empty = value;
-    }
-
-    public boolean getWall() {
-        return wall;
-    }
-
-    public void setWall(boolean value) {
-        this.wall = value;
-    }
 }

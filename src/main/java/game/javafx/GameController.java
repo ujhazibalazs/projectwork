@@ -243,9 +243,7 @@ public class GameController implements Initializable {
         gridPane.add(wall1, 4, 2);
         gridPane.add(wall2, 2, 3);
 
-        boolean canPlayerMove;
-        canPlayerMove = Moves.canPlayerMove(player1Turn, figures, gridHeight, gridWidth, grid);
-        if (!canPlayerMove) {
+        if (!Moves.canPlayerMove(player1Turn, figures, gridHeight, gridWidth, grid)) {
             if (player1Turn) {
                 Logger.debug(Game.player2 + " nyert.");
             } else {

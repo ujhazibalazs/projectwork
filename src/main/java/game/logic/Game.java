@@ -1,15 +1,37 @@
 package game.logic;
 
+import org.tinylog.Logger;
 import java.util.Scanner;
 
+/**
+ * Class holding methods for running the game without user interface.
+ */
 public class Game {
 
+    /**
+     * The height of the columns.
+     */
     private static final int GRIDHEIGHT = 6;
+
+    /**
+     * The width of the rows.
+     */
     private static final int GRIDWIDTH = 7;
 
+    /**
+     * The name of player one.
+     */
     public static String player1;
+
+    /**
+     * The name of player two.
+     */
     public static String player2;
 
+    /**
+     * Initializes a grid made of Cell objects.
+     * @return the initialized grid
+     */
     public static Cell[][] createGrid() {
         Cell[][] grid = new Cell[GRIDHEIGHT][GRIDWIDTH];
         for (int i = 0; i < GRIDHEIGHT; i++) {
@@ -20,6 +42,11 @@ public class Game {
         return  grid;
     }
 
+    /**
+     *
+     * @param grid
+     * @return
+     */
     public static Figure[] createFigures(Cell[][] grid) {
 
         Figure[] figures = new Figure[GRIDWIDTH*2];
@@ -54,9 +81,9 @@ public class Game {
         System.out.println();
         for (int i = 0; i < GRIDHEIGHT; i++) {
             for (int j = 0; j < GRIDWIDTH; j++) {
-                if (grid[i][j].getEmpty() && !grid[i][j].getWall()) {
+                if (grid[i][j].isEmpty() && !grid[i][j].isWall()) {
                     System.out.print("[O]");
-                } else if (grid[i][j].getEmpty() && grid[i][j].getWall()) {
+                } else if (grid[i][j].isEmpty() && grid[i][j].isWall()) {
                     System.out.print("[/]");
                 } else {
                     for (int k = 0; k < figures.length; k++) {
@@ -117,7 +144,7 @@ public class Game {
         return move;
     }
 
-    public static void startGame(boolean gui) {
+    public static void startGame() {
         Cell[][] grid = createGrid();
 
         grid[2][4].setWall(true);
@@ -162,6 +189,15 @@ public class Game {
             printGrid(figures, grid);
             moveSuccessful = false;
             player1Turn = !player1Turn;
+            if (!Moves.canPlayerMove(player1Turn, figures, GRIDHEIGHT, GRIDWIDTH, grid)) {
+                if (player1Turn) {
+                    Logger.debug(player2 + " nyert.");
+                } else {
+                    Logger.debug(player1 + " nyert.");
+                }
+                break;
+            }
+
         }
     }
 
