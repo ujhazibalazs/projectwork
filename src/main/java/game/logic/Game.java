@@ -1,22 +1,21 @@
 package game.logic;
 
-import org.tinylog.Logger;
 import java.util.Scanner;
 
 /**
- * Class holding methods for running the game without user interface.
+ * Class holding methods for running the game without graphical user interface.
  */
 public class Game {
 
     /**
      * The height of the columns.
      */
-    private static final int GRIDHEIGHT = 6;
+    public static final int GRIDHEIGHT = 6;
 
     /**
      * The width of the rows.
      */
-    private static final int GRIDWIDTH = 7;
+    public static final int GRIDWIDTH = 7;
 
     /**
      * The name of player one.
@@ -43,16 +42,13 @@ public class Game {
     }
 
     /**
-     *
-     * @param grid
-     * @return
+     * Initializes the figures with default values and sets up the grid.
+     * @param grid the grid to be set up
+     * @return an array of initialized figures
      */
     public static Figure[] createFigures(Cell[][] grid) {
-
         Figure[] figures = new Figure[GRIDWIDTH*2];
-
         int currWidth = 0;
-
         for (int i = 0; i < figures.length; i++) {
             figures[i] = new Figure();
             figures[i].setIndex(i);
@@ -72,11 +68,14 @@ public class Game {
             }
             currWidth++;
         }
-
         return figures;
-
     }
 
+    /**
+     * Prints out the current state of the game.
+     * @param figures the array of figures to be printed out
+     * @param grid the grid to be printed out
+     */
     public static void printGrid(Figure[] figures, Cell[][] grid) {
         System.out.println();
         for (int i = 0; i < GRIDHEIGHT; i++) {
@@ -103,6 +102,9 @@ public class Game {
         }
     }
 
+    /**
+     * Asks the users for their names through the console.
+     */
     private static void getPlayerNames() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("First player's name: ");
@@ -117,6 +119,11 @@ public class Game {
         System.out.println("Welcome, " + player2 + "!");
     }
 
+    /**
+     * Asks the user for the index of the figure they wish to move.
+     * @param player1Turn the player who currently has to move
+     * @return the chosen figure's index number
+     */
     private static int getChosenFigureIndex(boolean player1Turn) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Which figure do you want to move? [1 - 7]");
@@ -133,6 +140,10 @@ public class Game {
         return figureIndex;
     }
 
+    /**
+     * Asks the user for the type of move they wish to perform.
+     * @return the chosen type of move
+     */
     private static String getChosenMove() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What move would you like to perform? [f, dl, dr]");
@@ -144,22 +155,19 @@ public class Game {
         return move;
     }
 
+    /**
+     * Starts the game in no graphical user interface mode.
+     */
     public static void startGame() {
         Cell[][] grid = createGrid();
-
         grid[2][4].setWall(true);
         grid[3][2].setWall(true);
-
         Figure[] figures = createFigures(grid);
-
         getPlayerNames();
-
         boolean player1Turn = true;
         boolean moveSuccessful = false;
-
         int figureIndex;
         String move;
-
         while (true) {
             if (player1Turn) {
                 System.out.println(player1 + "'s turn");
@@ -168,19 +176,17 @@ public class Game {
             }
             printGrid(figures, grid);
             while (!moveSuccessful) {
-
                 figureIndex = getChosenFigureIndex(player1Turn);
                 move = getChosenMove();
-
                 switch (move) {
                     case "f":
-                        moveSuccessful = Moves.moveForward(figures[figureIndex], GRIDHEIGHT, grid);
+                        moveSuccessful = Moves.moveForward(figures[figureIndex], grid);
                         break;
                     case "dl":
-                        moveSuccessful = Moves.moveDiagonallyLeft(figures[figureIndex], GRIDHEIGHT, GRIDWIDTH, grid, figures);
+                        moveSuccessful = Moves.moveDiagonallyLeft(figures[figureIndex], grid, figures);
                         break;
                     case "dr":
-                        moveSuccessful = Moves.moveDiagonallyRight(figures[figureIndex], GRIDHEIGHT, GRIDWIDTH, grid, figures);
+                        moveSuccessful = Moves.moveDiagonallyRight(figures[figureIndex], grid, figures);
                         break;
                     default:
                         break;
@@ -189,15 +195,14 @@ public class Game {
             printGrid(figures, grid);
             moveSuccessful = false;
             player1Turn = !player1Turn;
-            if (!Moves.canPlayerMove(player1Turn, figures, GRIDHEIGHT, GRIDWIDTH, grid)) {
+            if (!Moves.canPlayerMove(player1Turn, figures, grid)) {
                 if (player1Turn) {
-                    Logger.debug(player2 + " nyert.");
+                    System.out.println(player2 + " won.");
                 } else {
-                    Logger.debug(player1 + " nyert.");
+                    System.out.println(player1 + " won.");
                 }
                 break;
             }
-
         }
     }
 

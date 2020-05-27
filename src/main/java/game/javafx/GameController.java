@@ -27,12 +27,9 @@ public class GameController implements Initializable {
     public boolean player1Turn = true;
     public boolean moveSuccessful = false;
 
-    public int gridHeight = 6;
-    public int gridWidth = 7;
-
     public Cell[][] grid = Game.createGrid();
     public Figure[] figures = Game.createFigures(grid);
-    public Circle[] circles = new Circle[gridWidth * 2];
+    public Circle[] circles = new Circle[Game.GRIDWIDTH * 2];
     public Figure selectedFigure = new Figure();
 
     @FXML
@@ -77,35 +74,33 @@ public class GameController implements Initializable {
     public void forwardButtonPress(ActionEvent actionEvent) {
         if (player1Turn) {
             if (selectedFigure.getColor().equals("red")) {
-                moveSuccessful = Moves.moveForward(selectedFigure, gridHeight, grid);
-                Game.printGrid(figures, grid);
+                moveSuccessful = Moves.moveForward(selectedFigure, grid);
                 if (moveSuccessful) {
                     player1Turn = !player1Turn;
                     moveSuccessful = false;
                     refreshUI();
                 } else {
                     infoLabel.setText("Illegal move.");
-                    Logger.debug("Illegal move.");
+                    Logger.info("Illegal move.");
                 }
             } else {
                 infoLabel.setText("Select a figure.");
-                Logger.debug("Select a figure.");
+                Logger.info("Select a figure.");
             }
         } else {
             if (selectedFigure.getColor().equals("blue")) {
-                moveSuccessful = Moves.moveForward(selectedFigure, gridHeight, grid);
-                Game.printGrid(figures, grid);
+                moveSuccessful = Moves.moveForward(selectedFigure, grid);
                 if (moveSuccessful) {
                     player1Turn = !player1Turn;
                     moveSuccessful = false;
                     refreshUI();
                 } else {
                     infoLabel.setText("Illegal move.");
-                    Logger.debug("Illegal move.");
+                    Logger.info("Illegal move.");
                 }
             } else {
                 infoLabel.setText("Select a figure.");
-                Logger.debug("Select a figure.");
+                Logger.info("Select a figure.");
             }
         }
 
@@ -115,35 +110,33 @@ public class GameController implements Initializable {
     public void leftButtonPress(ActionEvent actionEvent) {
         if (player1Turn) {
             if (selectedFigure.getColor().equals("red")) {
-                moveSuccessful = Moves.moveDiagonallyLeft(selectedFigure, gridHeight, gridWidth, grid, figures);
-                Game.printGrid(figures, grid);
+                moveSuccessful = Moves.moveDiagonallyLeft(selectedFigure, grid, figures);
                 if (moveSuccessful) {
                     player1Turn = !player1Turn;
                     moveSuccessful = false;
                     refreshUI();
                 } else {
                     infoLabel.setText("Illegal move.");
-                    Logger.debug("Illegal move.");
+                    Logger.info("Illegal move.");
                 }
             } else {
                 infoLabel.setText("Select a figure.");
-                Logger.debug("Select a figure.");
+                Logger.info("Select a figure.");
             }
         } else {
             if (selectedFigure.getColor().equals("blue")) {
-                moveSuccessful = Moves.moveDiagonallyLeft(selectedFigure, gridHeight, gridWidth, grid, figures);
-                Game.printGrid(figures, grid);
+                moveSuccessful = Moves.moveDiagonallyLeft(selectedFigure, grid, figures);
                 if (moveSuccessful) {
                     player1Turn = !player1Turn;
                     moveSuccessful = false;
                     refreshUI();
                 } else {
                     infoLabel.setText("Illegal move.");
-                    Logger.debug("Illegal move.");
+                    Logger.info("Illegal move.");
                 }
             } else {
                 infoLabel.setText("Select a figure.");
-                Logger.debug("Select a figure.");
+                Logger.info("Select a figure.");
             }
         }
     }
@@ -152,35 +145,33 @@ public class GameController implements Initializable {
     public void rightButtonPress(ActionEvent actionEvent) {
         if (player1Turn) {
             if (selectedFigure.getColor().equals("red")) {
-                moveSuccessful = Moves.moveDiagonallyRight(selectedFigure, gridHeight, gridWidth, grid, figures);
-                Game.printGrid(figures, grid);
+                moveSuccessful = Moves.moveDiagonallyRight(selectedFigure, grid, figures);
                 if (moveSuccessful) {
                     player1Turn = !player1Turn;
                     moveSuccessful = false;
                     refreshUI();
                 } else {
                     infoLabel.setText("Illegal move.");
-                    Logger.debug("Illegal move.");
+                    Logger.info("Illegal move.");
                 }
             } else {
                 infoLabel.setText("Select a figure.");
-                Logger.debug("Select a figure.");
+                Logger.info("Select a figure.");
             }
         } else {
             if (selectedFigure.getColor().equals("blue")) {
-                moveSuccessful = Moves.moveDiagonallyRight(selectedFigure, gridHeight, gridWidth, grid, figures);
-                Game.printGrid(figures, grid);
+                moveSuccessful = Moves.moveDiagonallyRight(selectedFigure, grid, figures);
                 if (moveSuccessful) {
                     player1Turn = !player1Turn;
                     moveSuccessful = false;
                     refreshUI();
                 } else {
                     infoLabel.setText("Illegal move.");
-                    Logger.debug("Illegal move.");
+                    Logger.info("Illegal move.");
                 }
             } else {
                 infoLabel.setText("Illegal move.");
-                Logger.debug("Select a figure.");
+                Logger.info("Select a figure.");
             }
         }
     }
@@ -205,7 +196,6 @@ public class GameController implements Initializable {
                         int height = GridPane.getRowIndex(node);
 
                         Figure figure = Moves.getFigureByPosition(figures, height, width);
-                        System.out.println(figure);
                         if (player1Turn) {
                             if (figure.getColor().equals("red")) {
                                 selectedFigure = figure;
@@ -243,11 +233,11 @@ public class GameController implements Initializable {
         gridPane.add(wall1, 4, 2);
         gridPane.add(wall2, 2, 3);
 
-        if (!Moves.canPlayerMove(player1Turn, figures, gridHeight, gridWidth, grid)) {
+        if (!Moves.canPlayerMove(player1Turn, figures, grid)) {
             if (player1Turn) {
-                Logger.debug(Game.player2 + " nyert.");
+                Logger.info(Game.player2 + " nyert.");
             } else {
-                Logger.debug(Game.player1 + " nyert.");
+                Logger.info(Game.player1 + " nyert.");
             }
         }
 
@@ -267,7 +257,6 @@ public class GameController implements Initializable {
         p2nameLabel.setText(Game.player2);
         grid[2][4].setWall(true);
         grid[3][2].setWall(true);
-        Game.printGrid(figures, grid);
         turnLabelSet(player1Turn);
         selectedFigure.setColor("blue");
     }

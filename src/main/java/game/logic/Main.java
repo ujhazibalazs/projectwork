@@ -4,9 +4,15 @@ import game.javafx.GameApplication;
 import javafx.application.Application;
 import org.tinylog.Logger;
 
-
+/**
+ * The main class of the game.
+ */
 public class Main {
 
+    /**
+     * The main method of the Main class.
+     * @param args program arguments
+     */
     public static void main(String[] args) {
 
         if (args.length > 0) {
