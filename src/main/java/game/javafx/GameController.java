@@ -7,9 +7,12 @@ import game.logic.Moves;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -17,9 +20,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.stage.Stage;
 import org.tinylog.Logger;
 
 public class GameController implements Initializable {
@@ -48,6 +53,9 @@ public class GameController implements Initializable {
     private Label infoLabel;
 
     @FXML
+    private Button forwardButton;
+
+    @FXML
     public void onClickCircle(MouseEvent mouseEvent) {
         Node node = mouseEvent.getPickResult().getIntersectedNode();
         int width = GridPane.getColumnIndex(node);
@@ -71,7 +79,7 @@ public class GameController implements Initializable {
     }
 
     @FXML
-    public void forwardButtonPress(ActionEvent actionEvent) {
+    public void forwardButtonPress(ActionEvent actionEvent) throws IOException {
         if (player1Turn) {
             if (selectedFigure.getColor().equals("red")) {
                 moveSuccessful = Moves.moveForward(selectedFigure, grid);
@@ -107,7 +115,7 @@ public class GameController implements Initializable {
     }
 
     @FXML
-    public void leftButtonPress(ActionEvent actionEvent) {
+    public void leftButtonPress(ActionEvent actionEvent) throws IOException {
         if (player1Turn) {
             if (selectedFigure.getColor().equals("red")) {
                 moveSuccessful = Moves.moveDiagonallyLeft(selectedFigure, grid, figures);
@@ -142,7 +150,7 @@ public class GameController implements Initializable {
     }
 
     @FXML
-    public void rightButtonPress(ActionEvent actionEvent) {
+    public void rightButtonPress(ActionEvent actionEvent) throws IOException {
         if (player1Turn) {
             if (selectedFigure.getColor().equals("red")) {
                 moveSuccessful = Moves.moveDiagonallyRight(selectedFigure, grid, figures);
@@ -176,7 +184,7 @@ public class GameController implements Initializable {
         }
     }
 
-    public void refreshUI () {
+    public void refreshUI() throws IOException {
 
         turnLabelSet(player1Turn);
         infoLabel.setText("Select a figure.");
@@ -235,10 +243,14 @@ public class GameController implements Initializable {
 
         if (!Moves.canPlayerMove(player1Turn, figures, grid)) {
             if (player1Turn) {
-                Logger.info(Game.player2 + " nyert.");
+                Logger.info(Game.player2 + " won.");
             } else {
-                Logger.info(Game.player1 + " nyert.");
+                Logger.info(Game.player1 + " won.");
             }
+            Stage stage = (Stage)forwardButton.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/endgame.fxml"));
+            stage.setScene(new Scene(root));
+            stage.show();
         }
 
     }
@@ -260,4 +272,5 @@ public class GameController implements Initializable {
         turnLabelSet(player1Turn);
         selectedFigure.setColor("blue");
     }
+
 }
