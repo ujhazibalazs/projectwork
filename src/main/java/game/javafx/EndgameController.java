@@ -1,5 +1,6 @@
 package game.javafx;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,8 @@ import java.util.ResourceBundle;
 
 public class EndgameController implements Initializable {
 
+    private String winnerName;
+
     @FXML
     private Label winnerLabel;
 
@@ -30,9 +33,18 @@ public class EndgameController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    public void showWinner(ActionEvent actionEvent) {
+        Platform.runLater(() -> winnerLabel.setText(winnerName));
+    }
+
+    public void setWinnerName(String winnerName) {
+        this.winnerName = winnerName;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        winnerLabel.setText("winner name here");
+
     }
 
 }

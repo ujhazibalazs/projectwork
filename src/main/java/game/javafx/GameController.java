@@ -27,6 +27,8 @@ import java.util.ResourceBundle;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
 
+import javax.inject.Inject;
+
 public class GameController implements Initializable {
 
     public boolean player1Turn = true;
@@ -36,6 +38,11 @@ public class GameController implements Initializable {
     public Figure[] figures = Game.createFigures(grid);
     public Circle[] circles = new Circle[Game.GRIDWIDTH * 2];
     public Figure selectedFigure = new Figure();
+
+    private String winnerName;
+
+    @Inject
+    private FXMLLoader fxmlLoader;
 
     @FXML
     private Label p1nameLabel;
@@ -244,13 +251,31 @@ public class GameController implements Initializable {
         if (!Moves.canPlayerMove(player1Turn, figures, grid)) {
             if (player1Turn) {
                 Logger.info(Game.player2 + " won.");
+                winnerName = Game.player2;
             } else {
                 Logger.info(Game.player1 + " won.");
+                winnerName = Game.player1;
             }
+
             Stage stage = (Stage)forwardButton.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/endgame.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/endgame.fxml"));
+            Parent root = loader.load();
+
+            EndgameController endgameController = loader.getController();
+            endgameController.setWinnerName(winnerName);
+            Logger.debug("winner name: " + winnerName);
+
             stage.setScene(new Scene(root));
             stage.show();
+            /*
+            fxmlLoader.setLocation(getClass().getResource("/fxml/endgame.fxml"));
+            Parent root = fxmlLoader.load();
+            fxmlLoader.<EndgameController>getController().setWinnerName(winnerName);
+            Stage stage = (Stage)forwardButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+             */
         }
 
     }
@@ -262,6 +287,8 @@ public class GameController implements Initializable {
             turnLabel.setText(Game.player2);
         }
     }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
